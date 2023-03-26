@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/59d5d47cdb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Design Blog</title>
+</head>
+
+<body>
+    <div id="root" class="root">
+        <header class="d_flex flex_column align_center">
+            <div class="p_relative">
+                <h1 class="title">You can design better</h1>
+                <h1 class="title">So make it better.</h1>
+                <div class="d_flex align_center spotify_tag">
+                    <h5>Learn from <i class="fa-brands fa-spotify"></i> Spotify</h5>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="d_flex justify_center main_layout">
+                <div class="flex_1 d_flex align_start spotify_layout_img_cont">
+                    <img class="spotify_layout" src="./assets/spotify_layout.svg" alt="spotify layout design">
+                </div>
+                <div class="flex_1 d_flex flex_column">
+                    <article>
+                        <h1 class="main_title">Design Guidelines</h1>
+                        <p class="summary">Welcome to our hub for partner guidelines and assets. We want to make it easy
+                            for you to
+                            integrate Spotify in your platform while respecting our brand and legal/licensing
+                            restrictions. These guidelines have been developed to ensure that all Spotify users receive
+                            the same delightful user experience - no matter which platform they listen on.</p>
+                    </article>
+                    <article>
+                        <h1 class="sub_title">When does this apply?</h1>
+                        <p class="summary">Content available through Spotify is owned by many different rights holders.
+                            If you use any Spotify metadata (including artist, album and track names, album artwork, and
+                            audio playback) it must always be accompanied by the Spotify brand.</p>
+                    </article>
+                    <article>
+                        <h1 class="sub_title">Attribute with the Spotify logo</h1>
+                        <p class="summary">To comply with our licensing agreements, you must always attribute content
+                            from Spotify with the logo. In partner integrations, you should always use our full logo
+                            (icon + wordmark). We do allow using only our icon if it’s featured as an app icon on the
+                            app screen of a device.</p>
+                    </article>
+                </div>
+            </div>
+            <div class="d_flex form_layout_cont">
+                <div class="form_layout">
+                    <h5>Get spotify premium</h5>
+                    <form action="javascript:void(0);">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="e.g. John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="e.g. john@gmail.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile</label>
+                            <input type="number" pattern="[0-9]+" max="9999999999"   id="mobile"  placeholder="e.g. 7015645892" required>
+                        </div>
+                        <div>
+                            <button>Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
