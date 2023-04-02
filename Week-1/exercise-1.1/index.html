@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>How Browser works?</title>
+</head>
+
+<body>
+    <div id="root" class="root">
+        <div class="main">
+            <main>
+                <div>
+                    <article>
+                        <section id="home">
+                            <div class="home"></div>
+                        </section>
+                        <div>
+                            <img class="image w_100" src="assets/url.png" alt="user entering the url in the search">
+                        </div>
+                        <div class="section">
+                            <section id="section_1">
+                                <div>
+                                    <header>When a user enters an URL in the browser, how does the browser fetch the
+                                        desired result ?
+                                    </header>
+                                </div>
+                                <div>
+                                    <p class="info">When a user enters an URL in the browser, the browser follows a
+                                        series
+                                        of steps to fetch
+                                        the desired result:
+                                    </p>
+                                    <ul class="info_list info">
+                                        <li class="info_item type number">
+                                            DNS Lookup: The browser first checks its cache to see if it already knows
+                                            the IP address associated with the domain name. If it doesn't have it, the
+                                            browser makes a DNS (Domain Name System) request to convert the domain name
+                                            into an IP address.
+                                        </li>
+                                        <li class="info_item type number">
+                                            Establishing a CRendering web pagesonnection: Once the browser has the IP
+                                            address, it opens a
+                                            connection to the server at that address using the HTTP (Hypertext Transfer
+                                            Protocol) or HTTPS (HTTP Secure) protocol.
+                                        </li>
+                                        <li class="info_item type number">
+                                            Sending the Request: The browser sends a request to the server for the
+                                            specific resource requested, such as a web page or an image. This request
+                                            includes information such as the HTTP method (GET, POST, PUT, etc.), the
+                                            headers, and any data that needs to be sent along with the request.
+                                        </li>
+                                        <li class="info_item type number">
+                                            Receiving the Response: The server processes the request and sends back a
+                                            response to the browser. This response includes the requested resource along
+                                            with metadata such as the response code (200 for success, 404 for not found,
+                                            etc.), headers, and any cookies that need to be set.
+                                        </li>
+                                        <li class="info_item type number">
+                                            Rendering the Page: Once the browser receives the response, it starts
+                                            rendering the page by parsing the HTML, CSS, and
+                                            JavaScript code and rendering the elements on the page.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="section">
+                            <section id="section_2">
+                                <div>
+                                    <h1 class="section_title">
+                                        What is the main functionality of the browser?
+                                    </h1>
+                                </div>
+                                <div>
+                                    <p class="info">The main functionality of a browser is to allow users to access and
+                                        view content on the World Wide Web (WWW) or other
+                                        networks. Browsers act as a software interface between a user and the internet,
+                                        interpreting HTML, CSS, and JavaScript
+                                        code to display web pages, videos, images, and other types of content.
+                                    </p>
+                                    <p class="info">Here are some of the main functions of a browser</p>
+                                    <ul class="info_list info">
+                                        <li class="info_item type title" data-title="Rendering web pages">
+                                            Browsers fetch web pages from servers and render them in a way that is
+                                            visually appealing and easy to navigate.
+                                        </li>
+                                        <li class="info_item type title" data-title="Navigation">
+                                            Browsers provide users with tools to navigate the web, including forward and
+                                            back buttons, tabs, bookmarks, and a URL
+                                            bar to enter web addresses.
+                                        </li>
+                                        <li class="info_item type title" data-title="Security">
+                                            Browsers protect users from security threats by warning them about
+                                            potentially harmful websites and preventing malicious
+                                            code from executing.
+                                        </li>
+                                        <li class="info_item type title" data-title="Extensions and plugins">
+                                            Browsers allow users to add functionality to the browser by installing
+                                            extensions and plugins, such as ad-blockers,
+                                            password managers, and language translators.
+                                        </li>
+                                        <li class="info_item type title" data-title="Cookies and caching">
+                                            Browsers store information about visited websites, such as login
+                                            information, and cache frequently accessed files to
+                                            improve page load times.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="section">
+                            <section id="section_3">
+                                <div>
+                                    <h1 class="section_title">
+                                        High Level Components of a browser.
+                                    </h1>
+                                </div>
+                                <div>
+                                    <p class="info">A browser is composed of several high-level components that work
+                                        together to provide a rich web browsing experience.
+                                        Here are the main high-level components of a browser
+                                    </p>
+
+                                    <ul class="info_list info">
+                                        <li class="info_item type title" data-title="User Interface (UI)">
+                                            The UI is the part of the browser that the user
+                                            interacts with, such as the address bar, navigation
+                                            buttons, and menus. The UI also includes the rendering engine, which
+                                            interprets HTML, CSS, and JavaScript code and
+                                            renders web pages.
+                                        </li>
+                                        <li class="info_item type title" data-title="Browser Engine">
+                                            The browser engine is responsible for managing the interactions between the
+                                            UI and the rendering engine.
+                                            It controls the flow of data between the two components and coordinates the
+                                            loading of web pages, managing requests, and
+                                            responses.
+                                        </li>
+                                        <li class="info_item type title" data-title="Rendering Engine">
+                                            The rendering engine is responsible for rendering web pages into a format
+                                            that can be displayed by the
+                                            browser. It interprets HTML, CSS, and JavaScript code and transforms it into
+                                            a visual representation that can be
+                                            displayed in the browser window.
+                                        </li>
+                                        <li class="info_item type title" data-title="Networking">
+                                            The networking component handles all network requests made by the browser,
+                                            such as fetching web pages,
+                                            images, and other resources. It uses protocols such as HTTP and HTTPS to
+                                            communicate with web servers and retrieve data.
+                                        </li>
+                                        <li class="info_item type title" data-title="JavaScript Interpreter">
+                                            The JavaScript interpreter executes JavaScript code
+                                            embedded in web pages, allowing them to
+                                            perform dynamic and interactive behaviors.
+                                        </li>
+                                        <li class="info_item type title" data-title="Storage">
+                                            The storage component manages the storage of data used by the
+                                            browser, such as cookies, cache, and user
+                                            preferences.
+
+                                        </li>
+                                    </ul>
+                                    <p class="info">These components work together to provide a seamless web browsing
+                                        experience, allowing users to interact with web pages,
+                                        access and share information, and perform various tasks online.
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="section">
+                            <section id="section_4">
+                                <div>
+                                    <h1 class="section_title">
+                                        Rendering engine and its use.
+                                    </h1>
+                                </div>
+                                <div>
+                                    <p class="info">A rendering engine is a software component that is responsible for
+                                        interpreting HTML, CSS, and JavaScript code and
+                                        rendering it into a visual representation that can be displayed in a web
+                                        browser. The rendering engine takes the raw
+                                        code of a web page and turns it into a graphical user interface that users can
+                                        interact with.
+                                    </p>
+                                    <p class="info">Different browsers use different rendering engines. For example,
+                                        Google Chrome and Opera use the Blink rendering engine,
+                                        while Firefox uses the Gecko rendering engine, and Safari uses the WebKit
+                                        rendering engine.
+                                    </p>
+                                    <p class="info">The rendering engine performs 'parsing HTML',&nbsp; 'applying CSS',
+                                        &nbsp;'executing Javascript'. Finally, the rendering engine renders the web page
+                                        by displaying its visual elements, such as text, images, and
+                                        multimedia, in the browser window.
+                                    </p>
+                                    <p class="info">The use of a rendering engine is critical for web browsing. Without
+                                        a rendering engine, web pages would be displayed as
+                                        raw HTML code, which would be difficult to read and navigate. The rendering
+                                        engine allows users to interact with web
+                                        pages in a graphical and intuitive way, providing a rich and engaging web
+                                        browsing experience.
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="section">
+                            <section id="section_5">
+                                <div>
+                                    <h1 class="section_title">
+                                        Parsers (HTML, CSS, etc)
+                                    </h1>
+                                </div>
+                                <div>
+                                    <p class="info">Parsers are software components that are used to analyze and
+                                        interpret code in different programming languages. In the
+                                        context of web development, parsers are used to parse HTML, CSS, and other
+                                        languages that are used to create web pages.
+                                    </p>
+                                    <p class="info">Here are some examples of parsers used in web development:
+                                    </p>
+                                    <ul class="info_list info">
+                                        <li class="info_item type title" data-title="HTML Parser">
+                                            The HTML parser is a software component that reads the HTML code of a web
+                                            page and generates a Document
+                                            Object Model (DOM) tree, which represents the structure of the web page. The
+                                            DOM tree is then used by the rendering
+                                            engine to display the web page in the browser window.
+                                        </li>
+                                        <li class="info_item type title" data-title="CSS Parser">
+                                            The CSS parser reads the CSS code of a web page and generates a Cascading
+                                            Style Sheets (CSS) object model,
+                                            which represents the style rules of the web page. The CSS object model is
+                                            then used by the rendering engine to apply the
+                                            styles to the DOM tree and render the web page.
+                                        </li>
+                                        <li class="info_item type title" data-title="JavaScript Parser  ">
+                                            The JavaScript parser reads the JavaScript code of a web page and converts
+                                            it into executable code
+                                            that can be run by the browser's JavaScript engine. The JavaScript parser is
+                                            responsible for detecting syntax errors and
+                                            other issues that could prevent the code from running properly.
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="section">
+                            <section id="section_6">
+                                <div>
+                                    <h1 class="section_title">
+                                        Script Processors
+                                    </h1>
+                                </div>
+                                <div>
+                                    <p class="info">Script processors are software components that execute scripts
+                                        written in programming languages such as JavaScript,
+                                        Python, or Ruby. In the context of web development, the most common script
+                                        processor is the JavaScript engine, which is
+                                        responsible for executing JavaScript code embedded in web pages.
+                                    </p>
+                                    <p class="info">The JavaScript engine parses the JavaScript code, generates an
+                                        internal representation of the code, and then executes
+                                        it. The execution process involves several stages, including lexical analysis,
+                                        syntax analysis, code generation, and
+                                        optimization.
+                                    </p>
+
+                                    <p class="info">Few examples of script processors are
+                                        <code>V8</code>,&nbsp;<code>SpiderMonkey</code>,&nbsp;<code>Chakra</code>&nbsp;etc.
+                                    </p>
+
+                                </div>
+                            </section>
+                        </div>
+                        <div class="section">
+                            <section id="section_7">
+                                <div>
+                                    <h1 class="section_title">
+                                        Tree construction
+                                    </h1>
+                                </div>
+                                <div>
+                                    <p class="info">Tree construction is the process of building a tree data structure
+                                        that represents the hierarchical structure of an HTML
+                                        or XML document. In the context of web development, tree construction is a
+                                        critical component of the rendering engine,
+                                        which uses the tree structure to render the web page in the browser window.
+                                    </p>
+                                    <p class="info">The tree construction process involves parsing the raw HTML or XML
+                                        code of the web
+                                        page and generating a tree structure
+                                        that represents the structure of the document. The tree structure is called the
+                                        Document Object Model (DOM) and consists
+                                        of nodes that represent HTML or XML elements, as well as their attributes and
+                                        content.
+                                    </p>
+                                    <p class="info">The tree construction process involves the following steps:
+                                    </p>
+                                    <ul class="info_list info">
+                                        <li class="info_item type title" data-title="Tokenization">
+                                            The first step in tree construction is tokenization, where the raw
+                                            HTML or XML code is broken down into a
+                                            sequence of tokens. Tokens are elements such as tags, attributes, and text
+                                            content.
+                                        </li>
+                                        <li class="info_item type title" data-title="Parsing">
+                                            The next step is parsing, where the tokens are processed to generate a
+                                            parse tree that represents the structure
+                                            of the document. The parse tree is then converted into the DOM tree.
+                                        </li>
+                                        <li class="info_item type title" data-title="DOM Tree Construction  ">
+                                            In the final step, the DOM tree is constructed by creating
+                                            nodes that represent the HTML or XML
+                                            elements, attributes, and content. Each node in the DOM tree has a parent
+                                            node and a
+                                            set of child nodes that represent
+                                            the hierarchical structure of the document.
+
+                                        </li>
+                                    </ul>
+                                    <p class="info">
+                                        The DOM tree is used by the rendering engine to render the web page in the
+                                        browser
+                                        window. The rendering engine applies
+                                        CSS styles to the nodes in the DOM tree and then renders the content in the
+                                        browser
+                                        window according to the layout and
+                                        styling rules defined by the web page.
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="section">
+                            <section id="section_8">
+                                <div>
+                                    <h1 class="section_title">
+                                        Order of script processing
+                                    </h1>
+                                </div>
+                                <div>
+                                    <p class="info">The order of script processing in a web page is determined by the
+                                        position of the script tags in the HTML document. The
+                                        browser processes the HTML document in a top-down manner, so scripts that appear
+                                        higher up in the document are executed
+                                        first, while scripts that appear lower down are executed later.
+                                    </p>
+                                    <p class="info">Here is an example of the order of script processing in an HTML
+                                        document:
+                                    </p>
+                                    <img class="image" src="./assets/script_order.png" alt="code snippet">
+                                    <p class="info">In this example, the browser will first process the script1.js file,
+                                        followed by the inline script that logs a message
+                                        to the console. This is because both of these scripts are located in the head
+                                        section of the document, which is
+                                        processed before the body section.
+                                    </p>
+
+                                    <p class="info">
+                                        Next, the browser will process the body section of the document, which contains
+                                        the "Hello, world!" text and the
+                                        script2.js file. The script2.js file is executed after the text because it
+                                        appears lower down in the document.
+                                    </p>
+                                    <p class="info">
+                                        It's worth noting that scripts that are loaded asynchronously or dynamically
+                                        using JavaScript can be executed out of
+                                        order. This is because these scripts do not block the loading of the rest of the
+                                        page and can be executed as soon as
+                                        they are loaded, even if they appear lower down in the document. As a result,
+                                        it's important for web developers to
+                                        carefully manage the order of script processing to ensure that their scripts
+                                        execute correctly and do not interfere with
+                                        each other.
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="section">
+                            <section id="section_9">
+                                <div>
+                                    <h1 class="section_title">
+                                        Layout and Painting
+                                    </h1>
+                                </div>
+                                <div>
+                                    <p class="info">Layout and painting are two key steps in the rendering process that
+                                        the browser goes through to display a web page on
+                                        the screen.
+                                    </p>
+                                    <p class="info">Layout, also known as reflow, is the process by which the browser
+                                        calculates the position and size of each element on
+                                        the web page based on the styles applied to them. This includes the dimensions
+                                        of the box that encloses each element,
+                                        its position on the screen, and the placement of its content within the box. The
+                                        layout process takes into account the
+                                        dimensions of the viewport, as well as the size and position of any other
+                                        elements on the page that may affect the
+                                        layout. The layout process is expensive in terms of computation, and can be a
+                                        bottleneck for performance, especially on
+                                        complex web pages.
+                                    </p>
+                                    <p class="info">Once the layout has been calculated, the browser moves on to the
+                                        painting phase. Painting is the process of filling in
+                                        the pixels on the screen with the colors and images defined by the styles
+                                        applied to each element. The painting process
+                                        starts at the top of the page and proceeds downward, painting each element in
+                                        turn. The painting process takes into
+                                        account the visibility and stacking order of each element on the page, as well
+                                        as any CSS effects such as transparency,
+                                        shadows, and gradients.
+                                    </p>
+
+                                    <p class="info">
+                                        The painting process also involves compositing, which is the process of
+                                        combining the pixels of each element with the
+                                        pixels of the elements below it in the stacking order to produce the final
+                                        output on the screen. Compositing involves
+                                        blending the colors and images of each element using techniques such as alpha
+                                        blending and blending modes.
+                                    </p>
+                                    <p class="info">
+                                        The layout and painting processes are complex and can involve a large amount of
+                                        computation, especially on complex web
+                                        pages with many elements and styles. To optimize performance, modern browsers
+                                        use a variety of techniques such as
+                                        caching, pre-fetching, and lazy loading to minimize the amount of work required
+                                        for layout and painting, and to ensure
+                                        that the web page is displayed as quickly and smoothly as possible.
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
+                    </article>
+                </div>
+            </main>
+        </div>
+        <div class="aside">
+            <div class="aside_cont">
+                <aside>
+                    <h1 class="aside_title">In this article</h1>
+                    <div class="navigation">
+                        <div class="nav_item"><a class="active" href="#home">Theme of the article</a></div>
+                        <div class="nav_item"><a href="#section_2">Browser functionality</a></div>
+                        <div class="nav_item"><a href="#section_3">High level components of browser</a></div>
+                        <div class="nav_item"><a href="#section_4">Rendering engine</a></div>
+                        <div class="nav_item"><a href="#section_5">Parsers</a></div>
+                        <div class="nav_item"><a href="#section_6">Script processors</a></div>
+                        <div class="nav_item"><a href="#section_7">Tree construction</a></div>
+                        <div class="nav_item"><a href="#section_8">Order of script execution</a></div>
+                        <div class="nav_item"><a href="#section_9">Layout and painting</a></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload=(()=>window.location.hash="home");
+        let navItems = document.querySelectorAll(".nav_item a");
+        navItems.forEach((item) => {
+            item.addEventListener("click", (e) => {
+                navItems.forEach(item => item.classList.remove("active"));
+                e.target.classList.add('active');
+            })
+        })
+    </script>
+</body>
+
+</html>
