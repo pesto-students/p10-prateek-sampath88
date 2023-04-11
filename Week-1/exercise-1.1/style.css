@@ -1,0 +1,150 @@
+html {
+  font-size: 16px;
+}
+
+:root {
+  --text-primary: rgb(41, 41, 41);
+  --text-secondary: #545454;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.w_100{
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+button {
+  border: none;
+  outline: none;
+}
+
+body {
+  color: #333;
+  background-color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+.root {
+  display: flex;
+  max-width: 1024px;
+  margin-inline: auto;
+  /* margin-top: 5rem; */
+}
+.home{
+  padding-top: 5rem;
+}
+
+.main {
+  flex: 1;
+  margin: 1rem 2.5rem;
+}
+
+.aside {
+  display: none;
+  margin: 1rem;
+  border-left: 1px solid rgba(242, 242, 242, 1);
+  position: sticky;
+}
+.aside_cont {
+  padding-left: 1.5rem;
+  position: fixed;
+}
+.aside_title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+.navigation {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+.nav_item a {
+  display: inline-block;
+  padding: 1rem 0.8rem;
+  padding-right: 2rem;
+  width: 100%;
+  cursor: pointer;
+}
+.nav_item:hover {
+  background-color: #c7c7c76a;
+}
+
+.nav_item a.active {
+  font-weight: bold;
+  background-color: #0085f230;
+  color: var(--text-primary);
+}
+.nav_item a {
+  font-size: 16px;
+  line-height: 18px;
+}
+.section {
+  margin-bottom: 3rem;
+}
+section{
+  padding-top: 2rem;
+}
+.image {
+  margin-bottom: 2rem;
+}
+header {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: var(--text-primary);
+}
+.section_title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+.info {
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+.info_list {
+  list-style: none;
+  counter-reset: info_item;
+}
+.info_item {
+  margin-bottom: 1.5rem;
+}
+.info_item.type {
+  padding-left: 1.3rem;
+  position: relative;
+}
+.info_item.type.number::before {
+  content: counter(info_item) ". ";
+  counter-increment: info_item;
+  position: absolute;
+  left: -2px;
+}
+.info_item.type.title {
+  padding: 0;
+}
+.info_item.type.title::before {
+  content: attr(data-title) ":";
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .aside {
+    display: block;
+    width: 320px;
+  }
+}
