@@ -1,53 +1,97 @@
-function MyPromise(callback) {
-  let state = "pending";
-  let value;
-  function resolve(newValue) {
-    if (state == "pending") {
-      state = "resolved";
-      value = newValue;
-      return;
-    }
-  }
-  function reject(newValue) {
-    if (state == "pending") {
-      state = "rejected";
-      value = newValue;
-      return;
+class MyPromise {
+  constructor(handler) {
+    this.status = "pending";
+    this.value = null;
+    this.onFulfilledCallbacks = [];
+    this.onRejectedCallbacks = [];
+
+    const resolve = (value) => {
+      if (this.status === "pending") {
+        this.status = "fulfilled";
+        this.value = value;
+        this.onFulfilledCallbacks.forEach((fn) => fn(value));
+      }
+    };
+
+    const reject = (value) => {
+      if (this.status === "pending") {
+        this.status = "rejected";
+        this.value = value;
+        this.onRejectedCallbacks.forEach((fn) => fn(value));
+      }
+    };
+
+    try {
+      handler(resolve, reject);
+    } catch (err) {
+      reject(err);
     }
   }
 
-  function handle(handler) {
-    if (
-      handler.onResolved &&
-      typeof handler.onResolved === "function" &&
-      state === "resolved"
-    ) {
-      value = handler.onResolved(value);
-    }
-    if (
-      handler.onRejected &&
-      typeof handler.onRejected === "function" &&
-      state === "rejected"
-    ) {
-      value = handler.onRejected(value);
-    }
-  }
-  this.then = function (onResolved, onRejected) {
-    handle({
-      onResolved: onResolved,
-      onRejected: onRejected,
+  then(onFulfilled, onRejected) {
+    return new MyPromise((resolve, reject) => {
+      if (this.status === "pending") {
+        this.onFulfilledCallbacks.push(() => {
+          try {
+            if (onFulfilled && typeof onFulfilled === "function") {
+              const fulfilledFromLastPromise = onFulfilled(this.value);
+              if (fulfilledFromLastPromise instanceof MyPromise) {
+                fulfilledFromLastPromise.then(resolve, reject);
+              } else {
+                resolve(fulfilledFromLastPromise);
+              }
+            }
+          } catch (err) {
+            reject(err);
+          }
+        });
+        this.onRejectedCallbacks.push(() => {
+          try {
+            if (onRejected && typeof onRejected === "function") {
+              const rejectedFromLastPromise = onRejected(this.value);
+              if (rejectedFromLastPromise instanceof MyPromise) {
+                rejectedFromLastPromise.then(resolve, reject);
+              } else {
+                reject(rejectedFromLastPromise);
+              }
+            }
+          } catch (err) {
+            reject(err);
+          }
+        });
+      }
+
+      if (this.status === "fulfilled") {
+        try {
+          if (onFulfilled && typeof onFulfilled === "function") {
+            const fulfilledFromLastPromise = onFulfilled(this.value);
+            if (fulfilledFromLastPromise instanceof MyPromise) {
+              fulfilledFromLastPromise.then(resolve, reject);
+            } else {
+              resolve(fulfilledFromLastPromise);
+            }
+          }
+        } catch (err) {
+          reject(err);
+        }
+      }
+
+      if (this.status === "rejected") {
+        try {
+          if (onRejected && typeof onRejected === "function") {
+            const rejectedFromLastPromise = onRejected(this.value);
+            if (rejectedFromLastPromise instanceof MyPromise) {
+              rejectedFromLastPromise.then(resolve, reject);
+            } else {
+              reject(rejectedFromLastPromise);
+            }
+          }
+        } catch (err) {
+          reject(err);
+        }
+      }
     });
-    return this;
-  };
-
-  this.catch = function (onError) {
-    if (onError && typeof onError === "function" && state === "rejected") {
-      value = onError(value);
-    }
-    return this;
-  };
-
-  callback(resolve, reject);
+  }
 }
 
 function generateNumber() {
@@ -57,14 +101,15 @@ function generateNumber() {
 const getNumber = new MyPromise((resolve, reject) => {
   let randomNumber = generateNumber();
   if (randomNumber % 5 === 0) {
-    reject(randomNumber);
+    setTimeout(() => {
+      reject(randomNumber);
+    }, 1000);
+    return;
   }
   resolve(randomNumber);
 });
 
-getNumber
-  .then((randomNumber) => {
-    console.log("Resolved: ", randomNumber);
-  })
-  .catch((randomNumber) => console.log("Rejected: ", randomNumber));
-
+getNumber.then(
+  (randomNumber) => console.log("Resolved: ", randomNumber),
+  (randomNumber) => console.log("Rejected: ", randomNumber),
+);
