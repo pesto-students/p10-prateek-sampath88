@@ -1,4 +1,4 @@
-import TodosPage from "@pages/todos-page";
+import TodosPage from "pages/todos-page";
 import "./App.css";
 
 function App() {
