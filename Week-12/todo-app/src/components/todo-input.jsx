@@ -1,0 +1,79 @@
+import { useEffect, useRef, useState } from "react";
+
+const TodoInput = (props) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const inputRef = useRef(null);
+  const textAreaRef = useRef(null);
+
+  const focusHandler = (e) => {
+    const hasFocus = document.activeElement === inputRef.current;
+    if (hasFocus && !isExpanded) {
+      inputRef.current.placeholder = "Title";
+      setIsExpanded(true);
+      textAreaRef.current.focus();
+    }
+  };
+
+  const handleNote = () => {
+    const payload = {
+      title: inputRef.current.value,
+      description: textAreaRef.current.innerText,
+    };
+    console.log(payload);
+  };
+  const cleanUp = () => {
+    inputRef.current.value = "";
+    textAreaRef.current.innerText = "";
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      const hasFocusOnInput =
+        inputRef.current && inputRef.current.contains(event.target);
+      const hasFocusOnTextArea =
+        textAreaRef.current && textAreaRef.current.contains(event.target);
+      //   console.log("hasFocusOnInput: ", hasFocusOnInput);
+      //   console.log("hasFocusOnTextArea: ", hasFocusOnTextArea);
+      if (!hasFocusOnInput && !hasFocusOnTextArea) {
+        setIsExpanded(false);
+        inputRef.current.placeholder = "Take a note...";
+        handleNote();
+        cleanUp();
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
+  return (
+    <div className="max-w-[600px] w-full">
+      <div className="m-4">
+        <div
+          style={{ maxHeight: isExpanded ? "unset" : "48px" }}
+          className={`border overflow-hidden rounded-lg min-h-[48px] shadow-[0_1px_2px_0_rgba(_60,_64,_67,_0.302),_0_2px_6px_2px_rgba(_60,_64,_67,_0.149)]`}>
+          <div>
+            <input
+              type="text"
+              placeholder="Take a note..."
+              ref={inputRef}
+              onFocus={(e) => focusHandler(e)}
+              className="w-full py-3 px-4 outline-none text-base font-medium text-[#202124] placeholder:text-[#666666]"
+            />
+          </div>
+          <div>
+            <div
+              contentEditable="true"
+              ref={textAreaRef}
+              placeholder="Take a note..."
+              className="w-full min-h-[40px] max-h-[300px] overflow-auto py-3 px-4 outline-none text-sm font-normal text-[#202124] cursor-text before:content-[''] before:text-[#555555] empty:before:content-[attr(placeholder)]"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TodoInput;
