@@ -1,13 +1,20 @@
 import { useState } from "react";
 import Todo from "components/todo";
 
-const TodoList = (props) => {
-  const [todoList, setTodoList] = useState([1, 2, 3]);
+const TodoList = ({ todos }) => {
   return (
-    <div>
+    <div className="w-full">
       <div className="flex flex-col justify-start items-center">
-        {todoList.map((todo) => {
-          return <Todo key={todo} />;
+        {todos.map(({ id, title, description, isDone }) => {
+          return (
+            <Todo
+              key={id}
+              id={id}
+              title={title}
+              description={description}
+              isDone={isDone}
+            />
+          );
         })}
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const TodoInput = (props) => {
+const TodoInput = ({ onBlur }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const inputRef = useRef(null);
   const textAreaRef = useRef(null);
@@ -15,11 +15,15 @@ const TodoInput = (props) => {
   };
 
   const handleNote = () => {
+    const title = inputRef.current.value;
+    const description = textAreaRef.current.innerText;
+    if (!title && !description) return;
     const payload = {
-      title: inputRef.current.value,
-      description: textAreaRef.current.innerText,
+      title,
+      description,
     };
     console.log(payload);
+    onBlur(payload);
   };
   const cleanUp = () => {
     inputRef.current.value = "";
