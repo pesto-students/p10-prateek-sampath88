@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App dark:bg-[#202124] h-[100vh] overflow-hidden">
       <TodosPage />
     </div>
   );

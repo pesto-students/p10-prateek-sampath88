@@ -57,14 +57,14 @@ const TodoInput = ({ onBlur }) => {
       <div className="m-4">
         <div
           style={{ maxHeight: isExpanded ? "unset" : "48px" }}
-          className={`border overflow-hidden rounded-lg min-h-[48px] shadow-[0_1px_2px_0_rgba(_60,_64,_67,_0.302),_0_2px_6px_2px_rgba(_60,_64,_67,_0.149)]`}>
+          className={`border dark:border-[#666] overflow-hidden rounded-lg min-h-[48px]  shadow-[0_1px_2px_0_rgba(_60,_64,_67,_0.302),_0_2px_6px_2px_rgba(_60,_64,_67,_0.149)] dark:shadow-none`}>
           <div>
             <input
               type="text"
               placeholder="Take a note..."
               ref={inputRef}
               onFocus={(e) => focusHandler(e)}
-              className="w-full py-3 px-4 outline-none text-base font-medium text-[#202124] placeholder:text-[#666666]"
+              className="w-full py-3 px-4 outline-none text-base font-medium text-[#202124] dark:text-[#ddd] placeholder:text-[#666666] dark:placeholder:text-[#aaa] dark:bg-[#202124]" 
             />
           </div>
           <div>
@@ -72,7 +72,7 @@ const TodoInput = ({ onBlur }) => {
               contentEditable="true"
               ref={textAreaRef}
               placeholder="Take a note..."
-              className="w-full min-h-[40px] max-h-[300px] overflow-auto py-3 px-4 outline-none text-sm font-normal text-[#202124] cursor-text before:content-[''] before:text-[#555555] empty:before:content-[attr(placeholder)]"></div>
+              className="w-full min-h-[40px] max-h-[300px] overflow-auto py-3 px-4 outline-none text-sm font-normal text-[#202124] dark:text-[#ddd] cursor-text before:content-[''] before:text-[#555555] dark:before:text-[#ddd] empty:before:content-[attr(placeholder)]"></div>
           </div>
         </div>
       </div>
