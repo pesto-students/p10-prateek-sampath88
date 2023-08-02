@@ -5,7 +5,3 @@
 .scrollbar::-webkit-scrollbar-thumb {
   background-color: gray;
 }
-
-.todo-item:hover .checkbox {
-  display: block;
-}
