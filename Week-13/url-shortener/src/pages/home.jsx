@@ -3,7 +3,7 @@ import LinkIcon from "components/icons/short-link";
 
 const HomePage = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto px-6">
       <div className="mt-48 mb-36">
         <h1 className="text-6xl text-white text-center font-bold flex items-center justify-center gap-4">
           <span>Unleash the Power of Short</span>

@@ -2,8 +2,8 @@ import LinkIcon from "components/icons/short-link";
 
 const Navbar = () => {
   return (
-    <div className="sticky z-40 w-full">
-      <div className="bg-gray-800 border-b-[1px] border-solid border-gray-600 p-4">
+    <div className="sticky top-0 z-40 w-full">
+      <div className="bg-gray-800 border-b-[1px] border-solid border-gray-600 p-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
             <div>
