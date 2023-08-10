@@ -37,7 +37,7 @@ const CopyLink = ({ shortLinkData }) => {
           className="flex items-center justify-between w-full p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
           role="alert">
           <div className="flex-1 flex justify-between items-center">
-            <div className="text-sm font-normal mr-4">{originalLink}</div>
+            <div className="text-sm font-normal mr-4 whitespace-pre-wrap break-all">{originalLink}</div>
             <a
               href={shortLink}
               target="_blank"
