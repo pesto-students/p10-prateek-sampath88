@@ -1,6 +1,6 @@
 const CopyLinkSkeleton = () => {
   return (
-    <div className="max-w-4xl mx-auto mt-44 mb-8  shadow rounded-md p-4 w-full dark:bg-gray-800">
+    <div className="max-w-4xl mx-auto mt-16 sm:mt-44 mb-8  shadow rounded-md p-4 w-full dark:bg-gray-800">
       <div className="animate-pulse">
         <div className="flex items-center">
           <div className="flex-1 grid grid-cols-3 gap-4">

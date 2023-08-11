@@ -1,6 +1,6 @@
 const ArrowAnimation = () => {
   return (
-    <div className="max-w-4xl mx-auto mt-28 mb-5">
+    <div className="max-w-4xl mx-auto mt-16 sm:mt-28 mb-5">
       <div className="flex justify-center">
         <div className="animate-bounce bg-gray-800 text-purple-400 border-[0.5px] border-gray-600 p-2 rounded-full w-fit">
           <svg
