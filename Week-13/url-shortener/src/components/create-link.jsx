@@ -5,8 +5,11 @@ import LinkIcon from "components/icons/short-link";
 import CopyLink from "components/copy-link";
 import CopyLinkSkeleton from "components/copy-link-skeleton";
 import CreateLinkError from "components/create-link-error";
+import useLocalStorage from "hooks/use-local-storage";
+import ArrowAnimation from "./arrow-animation";
 
 const CreateLink = () => {
+  const [, dispatch] = useLocalStorage("shortLinks", []);
   const [shortLinkData, setShortLinkData] = useState(null);
   const [hasError, setHasError] = useState(false);
   const [error, setError] = useState("");
@@ -31,7 +34,6 @@ const CreateLink = () => {
   });
 
   const createShortUrl = async (event) => {
-    console.log("URL: ", urlRef.current.value);
     const longLink = urlRef.current.value.trim();
     if (!longLink) return (urlRef.current.value = "");
     try {
@@ -43,16 +45,16 @@ const CreateLink = () => {
   };
 
   const createUrlItem = (data) => {
-    console.log("Success:", data);
     if (data.ok) {
       urlRef.current.value = "";
-      let urlItem = {
+      let newItem = {
         id: uuidv4(),
         code: data.result.code,
         originalLink: data.result.original_link,
         shortLink: data.result.full_short_link,
       };
-      setShortLinkData(urlItem);
+      dispatch((prevState) => [...prevState, newItem]);
+      setShortLinkData(newItem);
     } else {
       setHasError(true);
       setError(data.error);
@@ -96,7 +98,10 @@ const CreateLink = () => {
       <div>
         {mutation.isLoading ? <CopyLinkSkeleton /> : null}
         {mutation.isSuccess && !hasError ? (
-          <CopyLink shortLinkData={shortLinkData} />
+          <>
+            <ArrowAnimation />
+            <CopyLink shortLinkData={shortLinkData} />
+          </>
         ) : null}
         {mutation.isError || hasError ? (
           <CreateLinkError error={error} onReset={resetMutation} />

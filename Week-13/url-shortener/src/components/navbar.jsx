@@ -1,37 +1,48 @@
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 import LinkIcon from "components/icons/short-link";
 
 const Navbar = () => {
+  const navCssClasses =
+    "block py-2 pl-3 pr-4 rounded md:bg-transparent  md:p-0 text-white hover:text-blue-400";
   return (
     <div className="sticky top-0 z-40 w-full">
       <div className="bg-gray-800 border-b-[1px] border-solid border-gray-600 p-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-white text-2xl font-bold underline underline-offset-4 flex items-center gap-[6px] cursor-pointer">
-                <span>Short</span>
-                <span className="w-6 h-6 flex justify-center items-center">
-                  <LinkIcon />
-                </span>
-                <span>URL</span>
-              </h1>
+              <Link to={"home"}>
+                <h1 className="text-white text-2xl font-bold underline underline-offset-4 flex items-center gap-[6px] cursor-pointer">
+                  <span>Short</span>
+                  <span className="w-6 h-6 flex justify-center items-center">
+                    <LinkIcon />
+                  </span>
+                  <span>URL</span>
+                </h1>
+              </Link>
             </div>
             <div className="flex items-center gap-6">
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4  bg-blue-700 rounded md:bg-transparent  md:p-0 text-white md:text-blue-400"
+              <NavLink
+                to="home"
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? `${navCssClasses} text-blue-400`
+                    : `${navCssClasses}`
+                }
                 aria-current="page">
                 Home
-              </a>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4  rounded   md:border-0  md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">
-                Pricing
-              </a>
-              <a
-                href="#"
-                className="block py-2 pl-3 pr-4  rounded   md:border-0  md:p-0 text-white md:hover:text-blue-500 hover:bg-gray-700 hover:text-white md:hover:bg-transparent">
-                Docs
-              </a>
+              </NavLink>
+              <NavLink
+                to="my-links"
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? `${navCssClasses} text-blue-400`
+                    : `${navCssClasses}`
+                }
+                aria-current="page">
+                My Links
+              </NavLink>
             </div>
             <div className="flex items-center gap-4">
               <button
