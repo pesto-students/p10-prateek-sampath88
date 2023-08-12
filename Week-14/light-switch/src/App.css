@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  width: 100%;
+  height: 100vh;
+}
+
+.room {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.house {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.house img {
+  object-fit: fill;
+}
+.switch {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.switch button {
+  width: 100px;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: #4b5563;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #1f2937;
+  outline: none;
+  cursor: pointer;
+}
+.switch button:hover {
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
+.on {
+  display: block;
+}
+.off {
+  display: none;
+}
