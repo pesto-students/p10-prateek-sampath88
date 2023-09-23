@@ -1,0 +1,249 @@
+openapi: 3.0.0
+info:
+  title: Wealth Report API
+  description: User wealth management app
+  version: 1.0.0
+
+servers:
+  - url: "{protocol}://localhost:3000/api/{version}"
+    description: for localhost only
+    variables:
+      protocol:
+        enum:
+          - http
+          # - https
+        default: http
+      version:
+        enum:
+          - v1
+          # - v2
+        default: v1
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    ValidationError:
+      type: object
+      properties:
+        success:
+          type: boolean
+          default: false
+        message:
+          type: string
+          default: "Validation error"
+    InsufficientData:
+      type: object
+      properties:
+        success:
+          type: boolean
+          default: false
+        message:
+          type: string
+          default: "email, password, etc. are required"
+    DuplicateData:
+      type: object
+      properties:
+        success:
+          type: boolean
+          default: false
+        message:
+          type: string
+          default: "user exists with provided email, please login"
+    DataNotExist:
+      type: object
+      properties:
+        success:
+          type: boolean
+          default: false
+        message:
+          type: string
+          default: "Provided data does not match or exist"
+        
+paths:
+  /signup:
+    post:
+      tags:
+        - Auth
+      summary: creates new user
+      consumes: 
+        - application/json
+      produces:
+        - application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - email
+                - password
+              properties:
+                name:
+                  type: string
+                  required: true
+                email:
+                  type: string
+                  required: true
+                password:
+                  type: string
+                  required: true;
+      responses:
+        200:
+          description: User added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  token:
+                    type: string
+                  user:
+                    $ref: "#/components/schemas/User"
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/InsufficientData"
+                  - $ref: "#/components/schemas/DuplicateData"
+                  - $ref: "#/components/schemas/ValidationError"
+  /login:
+    post:
+      tags:
+        - Auth
+      summary: user login
+      consumes: 
+        - application/json
+      produces:
+        - application/json
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  required: true
+                password:
+                  type: string
+                  required: true;
+      responses:
+        200:
+          description: User loggedin successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  token:
+                    type: string
+                  user:
+                    $ref: "#/components/schemas/User"
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/InsufficientData"
+                  - $ref: "#/components/schemas/DataNotExist"
+                  - $ref: "#/components/schemas/ValidationError"
+  /logout:
+    get:
+      tags:
+        - Auth
+      summary: user logout
+      produces:
+        - application/json
+      responses:
+        200:
+          description: User loggedout successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                    default: "Logout success"
+  /user:
+    get:
+      tags:
+        - User
+      summary: user details
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Gets User details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  user:
+                    $ref: "#/components/schemas/User"
+        400:
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+                    default: "user not found"
+        401:
+          description: unauthorized user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    default: false
+                  message:
+                    type: string
+                    default: "unauthorized"
+                  description:
+                    type: string
+                    default: "Access to this API endpoint requires authentication."
+
