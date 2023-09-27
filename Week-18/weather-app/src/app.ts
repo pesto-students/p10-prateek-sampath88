@@ -11,7 +11,7 @@ app.use(cors());
 import weatherRoute from "./routes/weather";
 
 //use routes here
-app.use("/api/v1", weatherRoute);
+app.use("/api/v1/weather", weatherRoute);
 
 
 export default app;

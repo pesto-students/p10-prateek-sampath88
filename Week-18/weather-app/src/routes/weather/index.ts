@@ -1,12 +1,10 @@
 import express from "express";
-import { getCurrentWeather } from "./controller";
-import validateResource from "../../middlewares/validateResource";
-import { weatherQueryParamsSchema } from "./schema";
+import { getCurrentWeather, getWeatherForecast, getWeather } from "./controller";
 
 const router = express.Router();
 
-router
-  .route("/")
-  .get(getCurrentWeather);
+router.route("/").get(getWeather);
+router.route("/current").get(getCurrentWeather);
+router.route("/forecast").get(getWeatherForecast);
 
 export default router;
