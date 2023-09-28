@@ -27,6 +27,7 @@ export interface ForecastWeatherType extends LatLon {
   units: string;
   lang: string;
   days: number;
+  dt: string;
 }
 
 export interface WeatherType extends LatLon {
@@ -67,6 +68,7 @@ const getGeoCoordinatesByCity = async (city: string) => {
   }
 };
 
+//get current weather
 const getCurrentWeatherByLatLon = async ({ lat, lon }: LatLon) => {
   if (!(lat && lon)) return [];
   const params = new URLSearchParams({
@@ -74,7 +76,7 @@ const getCurrentWeatherByLatLon = async ({ lat, lon }: LatLon) => {
     lat: lat.toString(),
     lon: lon.toString(),
   });
-  const url: string = `${API_URL_WEATHER}?${params}`;
+  const url: string = `${API_URL_WEATHER}/weather?${params}`;
   console.log("weatherUrl: ", url);
   const response = await axios.get(url);
   if (response.status == 200) {
@@ -82,17 +84,19 @@ const getCurrentWeatherByLatLon = async ({ lat, lon }: LatLon) => {
   }
 };
 
+//get weather forecast [city,days,lang,units]:filters
 const getWeatherForecastByLatLon = async (data: ForecastWeatherType) => {
-  const { lat, lon, exclude, units, lang, days } = data;
+  const { lat, lon, units, lang, days, dt } = data;
   const params = new URLSearchParams({
-    [API_KEY_NAME]: API_KEY_VALUE,
     lat,
     lon,
-    exclude,
+    [API_KEY_NAME]: API_KEY_VALUE,
+    cnt: String(days),
     units,
     lang,
+    dt,
   });
-  const url: string = `${API_URL_ONECALL}?${params}`;
+  const url: string = `${API_URL_WEATHER}/forecast?${params}`;
   console.log("weatherUrl: ", url);
   console.log("days: ", days);
   const response = await axios.get(url);
@@ -101,8 +105,7 @@ const getWeatherForecastByLatLon = async (data: ForecastWeatherType) => {
   }
 };
 
-
-
+//get weather for perticular moment
 const getWeatherByLatLon = async (data: WeatherType) => {
   const params = new URLSearchParams({
     [API_KEY_NAME]: API_KEY_VALUE,
@@ -116,6 +119,43 @@ const getWeatherByLatLon = async (data: WeatherType) => {
   }
 };
 
+const getWeatherByCity = async (data: {
+  city: string;
+  units: string;
+  lang: string;
+  dt: string;
+}) => {
+  // Get Geocoordinates of a city
+  const geoData: GeoCodeResponse[] = await getGeoCoordinatesByCity(data.city);
+  if (!geoData.length) {
+    return { city: data.city, message: "No data found" };
+  }
+  const { lat, lon }: GeoCodeResponse = geoData[0];
+
+  // Get weather data by latitude and longitude
+  const weatherData = await getWeatherByLatLon({
+    lat: String(lat),
+    lon: String(lon),
+    units: data.units,
+    lang: data.lang,
+    dt: data.dt ? data.dt : String(dayjs().unix()),
+  });
+  return { city: data.city, ...weatherData };
+};
+
+const getWeatherForMultipleCities = async (
+  cities: string[],
+  options: { units: string; lang: string; dt: string }
+) => {
+  const promises = cities.map((city: string) => {
+    return getWeatherByCity({ city, ...options });
+  });
+  const response = await Promise.allSettled(promises);
+  return response.map((res) =>
+    res.status === "fulfilled" ? res.value : res.reason
+  );
+};
+
 export {
   getGeoCoordinatesByCity,
   getWeatherByLatLon,
@@ -123,4 +163,5 @@ export {
   getCurrentWeatherByLatLon,
   parseWeatherQueryParams,
   parseQueryFromUrl,
+  getWeatherForMultipleCities,
 };

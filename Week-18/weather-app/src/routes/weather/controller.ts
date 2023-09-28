@@ -6,10 +6,21 @@ import {
   getCurrentWeatherByLatLon,
   getGeoCoordinatesByCity,
   getWeatherByLatLon,
+  getWeatherForMultipleCities,
   getWeatherForecastByLatLon,
   parseQueryFromUrl,
   parseWeatherQueryParams,
 } from "./helpers";
+
+const getLatLonByCityName = async (req: Request, res: Response) => {
+  const query = parseQueryFromUrl(req.url);
+  let params: WeatherQueryParams = parseWeatherQueryParams(query);
+  const geoData: GeoCodeResponse[] = await getGeoCoordinatesByCity(params.city);
+  if (!geoData.length) {
+    return res.status(200).json({ success: false, message: "No data found" });
+  }
+  return res.status(200).json(geoData);
+};
 
 //get current weather condition for any city
 const getCurrentWeather = async (req: Request, res: Response) => {
@@ -41,6 +52,7 @@ const getCurrentWeather = async (req: Request, res: Response) => {
   }
 };
 
+//get weather forecast [city,days,lang,units]:filters
 const getWeatherForecast = async (req: Request, res: Response) => {
   try {
     const query = parseQueryFromUrl(req.url);
@@ -65,6 +77,7 @@ const getWeatherForecast = async (req: Request, res: Response) => {
       units: params.units,
       lang: params.lang,
       days: params.days,
+      dt: params.dt ? params.dt : String(dayjs().unix()),
     });
     return res.status(200).json(weatherData);
   } catch (e: any) {
@@ -82,19 +95,9 @@ const getWeather = async (req: Request, res: Response) => {
     //check if city exist in query params
     let params: WeatherQueryParams = parseWeatherQueryParams(query);
 
-    // Get Geocoordinates of a city
-    const geoData: GeoCodeResponse[] = await getGeoCoordinatesByCity(
-      params.city
-    );
-    if (!geoData.length) {
-      return res.status(200).json({ success: false, message: "No data found" });
-    }
-    const { lat, lon }: GeoCodeResponse = geoData[0];
-
-    // Get weather data by latitude and longitude
-    const weatherData = await getWeatherByLatLon({
-      lat: String(lat),
-      lon: String(lon),
+    let cities = params.city.split(",");
+    console.log("cities: ", cities);
+    const weatherData = await getWeatherForMultipleCities(cities, {
       units: params.units,
       lang: params.lang,
       dt: params.dt ? params.dt : String(dayjs().unix()),
@@ -107,4 +110,9 @@ const getWeather = async (req: Request, res: Response) => {
   }
 };
 
-export { getCurrentWeather, getWeatherForecast, getWeather };
+export {
+  getWeather,
+  getCurrentWeather,
+  getWeatherForecast,
+  getLatLonByCityName,
+};

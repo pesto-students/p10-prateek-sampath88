@@ -18,7 +18,7 @@ const isValidNumber = coerce
     },
   })
   .min(1)
-  .max(8)
+  .max(40)
   .default(8);
 
 export const weatherQueryParamsSchema = object({
