@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmyshow Low level design</title>
+</head>
+
+<body>
+    <div>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2024.25 1659.0310736294807" width="6072.75"
+            height="4977.093220888442">
+            <!-- svg-source:excalidraw -->
+
+            <defs>
+                <style class="style-fonts">
+                    @font-face {
+                        font-family: "Virgil";
+                        src: url("https://excalidraw.com/Virgil.woff2");
+                    }
+
+                    @font-face {
+                        font-family: "Cascadia";
+                        src: url("https://excalidraw.com/Cascadia.woff2");
+                    }
+                </style>
+
+            </defs>
+            <rect x="0" y="0" width="2024.25" height="1659.0310736294807" fill="#ffffff"></rect>
+            <g stroke-linecap="round" transform="translate(1843.25 453.5310736294808) rotate(0 85.5 88.5)">
+                <path
+                    d="M-1.44 0.42 C60.82 -0.55, 127.26 -0.78, 169.62 1.87 M0.49 -0.36 C64.11 -1.47, 127.34 -0.71, 171.14 -0.07 M169.12 0.56 C172.1 54.28, 171.31 113.33, 169.89 176.7 M170.1 0.67 C172.32 37.05, 172.8 73.78, 170.03 177.97 M171.52 178.71 C127.6 175.39, 84.12 174.92, 0.91 176.49 M170.77 176.62 C103.51 177.41, 37.8 176.97, 0.9 177.14 M0.92 177.38 C-2.92 114.3, -2.14 48.01, 1.66 -1.9 M-0.93 177.17 C0.82 127.88, 2.63 79.23, 0.5 -0.44"
+                    stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+            </g>
+            <g transform="translate(1857.25 464.5310736294808) rotate(0 23.4375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#e03131" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Seat</text></g>
+            <g transform="translate(1857.25 497.5310736294808) rotate(0 52.734375 24)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">name;</text><text
+                    x="0" y="24" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e"
+                    text-anchor="start" style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">isBooked;</text></g>
+            <g transform="translate(1858.25 564.5310736294807) rotate(0 52.734375 24)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">book();</text><text
+                    x="0" y="24" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e"
+                    text-anchor="start" style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">unbook();</text></g>
+            <g stroke-linecap="round"
+                transform="translate(1356.25 439.5310736294808) rotate(0 171.5 158.99999999999994)">
+                <path
+                    d="M-0.76 0.05 C89.48 -0.1, 178.88 1.47, 343.12 -0.48 M0.65 0.62 C90.08 -0.04, 180.57 -0.45, 342.67 -0.07 M343.4 -0.26 C343.8 72.66, 341.32 145.41, 341.76 317.96 M342.92 0.69 C344.36 75.2, 344.45 151.91, 342.46 317.88 M342.93 317.96 C212.97 320.72, 84.37 319.59, -0.25 318.69 M343.64 318.22 C251.07 316.1, 158.39 317.12, -0.47 317.99 M-1.31 317.79 C1.68 191.84, 1.39 67.69, 0.91 0.53 M-0.36 318.37 C-0.68 253.28, -0.85 188.48, -0.17 -0.5"
+                    stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+            </g>
+            <g transform="translate(1372.25 453.5310736294808) rotate(0 35.15625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#e03131" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Screen</text></g>
+            <g transform="translate(1375.25 491.5310736294808) rotate(0 76.171875 36)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">screenNumber;</text><text x="0" y="24"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">rows;</text><text
+                    x="0" y="48" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e"
+                    text-anchor="start" style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">cols;</text></g>
+            <g transform="translate(1375.25 575.5310736294807) rotate(0 93.75 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">generateSeats();</text></g>
+            <g transform="translate(1371.25 607.5310736294807) rotate(0 117.1875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">getAvailableSeats();</text></g>
+            <g transform="translate(1376.25 640.5310736294807) rotate(0 70.3125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">bookSeats();</text>
+            </g>
+            <g transform="translate(1369.25 670.5310736294807) rotate(0 158.203125 24)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">releaseSeats();</text><text x="0" y="24"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">checkHasOverlappingSeats();</text></g>
+            <g stroke-linecap="round">
+                <g transform="translate(1825.25 494.32736642940466) rotate(0 -53.800615762826055 -0.6083519488229072)">
+                    <path
+                        d="M1.05 -1.24 C-23.24 1.59, -46.11 0.01, -107.2 -1.5 M-0.99 0.25 C-25.53 -1.11, -49.28 -0.88, -108.65 -1.54"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g transform="translate(1825.25 494.32736642940466) rotate(0 -53.800615762826055 -0.6083519488229072)">
+                    <path
+                        d="M-79.32 -12.78 C-86.39 -7.68, -92.13 -6.98, -106.85 -2.31 M-81.36 -11.29 C-87.66 -9.97, -93.18 -7.31, -108.3 -2.35"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g transform="translate(1825.25 494.32736642940466) rotate(0 -53.800615762826055 -0.6083519488229072)">
+                    <path
+                        d="M-79.51 7.74 C-86.71 8.49, -92.41 4.83, -106.85 -2.31 M-81.55 9.23 C-87.81 5.91, -93.28 3.94, -108.3 -2.35"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+            </g>
+            <mask></mask>
+            <g stroke-linecap="round" transform="translate(1239.25 179.53107362948077) rotate(0 117 103)">
+                <path
+                    d="M-1.67 0.05 C65.85 1.27, 134.99 -1.3, 232.36 -1.04 M-0.75 0.28 C69.67 -1.31, 137.28 -0.58, 234.62 0.27 M233.62 1.73 C234.22 69.01, 235.02 142.37, 235.01 204.93 M234.44 0.21 C235.69 52.55, 235.1 104.86, 234.24 206.34 M233.04 204.49 C163.05 207.36, 90.39 206.55, -1.3 205.65 M233.53 206.72 C148.93 205.58, 64.11 205.53, -0.28 206.02 M-1.12 205.71 C-0.76 131.49, 0.23 57.28, -0.72 0.87 M0.66 205.2 C0.1 147.57, 1.28 91.31, -0.27 0.67"
+                    stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+            </g>
+            <g transform="translate(1253.25 189.53107362948077) rotate(0 76.171875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#e03131" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">ScreenFactory</text>
+            </g>
+            <g transform="translate(1254.25 228.53107362948077) rotate(0 76.171875 36)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">screenNumber;</text><text x="0" y="24"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">rows;</text><text
+                    x="0" y="48" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e"
+                    text-anchor="start" style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">cols;</text></g>
+            <g transform="translate(1251.25 324.5310736294808) rotate(0 87.890625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">createScreen();</text></g>
+            <g stroke-linecap="round">
+                <g
+                    transform="translate(1626.0737829461584 419.5310736294808) rotate(0 -69.53196266311056 -89.11474371887746)">
+                    <path
+                        d="M1.65 -0.31 C2.06 -63.58, 4.28 -131.75, 3.56 -177.92 M0.06 -0.49 C1.16 -64.98, 3.56 -128.24, 4.53 -175.8 M4.86 -176.73 C-29.83 -173.88, -62.56 -176.33, -143.67 -177.91 M5.5 -177 C-50.32 -176.47, -103.59 -176.22, -144.56 -177.64"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g
+                    transform="translate(1626.0737829461584 419.5310736294808) rotate(0 -69.53196266311056 -89.11474371887746)">
+                    <path
+                        d="M-114.51 -187.6 C-127.68 -181.59, -137.97 -180.62, -146.19 -179.56 M-116.1 -187.78 C-126.83 -184.76, -136.69 -180.26, -145.21 -177.44"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g
+                    transform="translate(1626.0737829461584 419.5310736294808) rotate(0 -69.53196266311056 -89.11474371887746)">
+                    <path
+                        d="M-114.96 -167.09 C-127.84 -168.71, -137.96 -175.39, -146.19 -179.56 M-116.54 -167.26 C-127.16 -171.73, -136.85 -174.72, -145.21 -177.44"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+            </g>
+            <mask></mask>
+            <g stroke-linecap="round" transform="translate(10 920.2810736294807) rotate(0 87.5 82)">
+                <path
+                    d="M-0.5 1.83 C45.97 0.13, 95.16 -1.9, 175.72 -1.15 M0.99 -0.18 C66.46 1.92, 134.26 1.59, 175.04 0.39 M175.84 -1.73 C174.3 53.52, 177.15 109.57, 174.97 165.15 M175.79 -0.38 C173.84 45.07, 174.1 92.73, 175.03 163.47 M173.97 165.28 C123.67 162.04, 71.22 162.94, 0.03 162.76 M174.19 163.45 C118.59 162.65, 62.8 161.93, -0.78 164.38 M0.52 164.56 C2.13 109.45, -1.48 57.4, -1.11 1.18 M-0.12 163.29 C-0.48 120.71, 0.53 76.77, 0.21 0.34"
+                    stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+            </g>
+            <g transform="translate(27 938.2810736294807) rotate(0 29.296875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#e03131" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Movie</text></g>
+            <g transform="translate(25 969.2810736294807) rotate(0 58.59375 48)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">name;</text><text
+                    x="0" y="24" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e"
+                    text-anchor="start" style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">duration;</text><text x="0" y="48"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">languages;</text><text x="0" y="72"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">other;</text></g>
+            <g transform="translate(34 629.7810736294807) rotate(0 23.4375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#e03131" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Show</text></g>
+            <g transform="translate(34 665.2810736294807) rotate(0 35.15625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">movie;</text></g>
+            <g transform="translate(34 734.2810736294807) rotate(0 35.15625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">price;</text></g>
+            <g transform="translate(138 734.2810736294807) rotate(0 17.578125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">int</text></g>
+            <g transform="translate(107 665.2810736294807) rotate(0 58.59375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">Movie&lt;obj&gt;</text></g>
+            <g transform="translate(34 700.7810736294807) rotate(0 58.59375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">startTime;</text></g>
+            <g transform="translate(34 767.7810736294807) rotate(0 41.015625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">screen;</text></g>
+            <g transform="translate(155 700.7810736294807) rotate(0 52.734375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">Date&lt;obj&gt;</text></g>
+            <g transform="translate(128 769.7810736294807) rotate(0 64.453125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">Screen&lt;obj&gt;</text></g>
+            <g stroke-linecap="round" transform="translate(21 612.7810736294807) rotate(0 134.5 102)">
+                <path
+                    d="M-1.48 0.47 C61.99 0.75, 126.27 -0.71, 269.59 1.04 M-0.35 0.22 C101.89 0.06, 204.97 -1.05, 269.47 0.41 M268.17 -0.04 C271.1 81.65, 270.96 159.21, 269.89 205.78 M268.42 -0.01 C268.04 56.07, 267.4 112.84, 268.37 204.56 M269.35 205.04 C173.6 202.67, 76.31 201.94, 1.27 204.38 M268.75 204.38 C171.92 205.31, 73.97 206.57, -0.27 203.45 M-0.59 203.09 C0.01 140.42, 1.41 75.75, 0.96 0.78 M-0.41 204.87 C-1.35 139.49, -1.31 74.24, 0.52 -0.03"
+                    stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+            </g>
+            <g stroke-linecap="round" transform="translate(482.5 170.78107362948077) rotate(0 252.5 287.5)">
+                <path
+                    d="M0.47 0.76 C200.85 2.36, 402.75 1.38, 505.51 0.47 M-0.03 -0.27 C188.19 1.55, 375.74 2.1, 505.15 -0.12 M505.62 -0.52 C505.78 178.6, 504.3 357.77, 504.95 574.44 M504.91 0.02 C504.42 169.54, 504.03 339.9, 505 575.11 M504.7 575.44 C333.06 573.5, 159.8 574.12, 0.54 574.34 M505.3 574.69 C339.65 575.4, 174.74 575.63, 0.04 575.17 M-0.3 574.3 C1.74 391.99, 1.64 209.4, 0.28 -0.46 M-0.15 575.2 C-1.05 415.57, -0.41 256.57, -0.17 0.11"
+                    stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+            </g>
+            <g transform="translate(503.5 188.78107362948077) rotate(0 41.015625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#e03131" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Theatre</text></g>
+            <g transform="translate(503.5 233.78107362948077) rotate(0 29.296875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">name;</text></g>
+            <g transform="translate(567.5 233.78107362948077) rotate(0 35.15625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">String</text></g>
+            <g transform="translate(503.5 271.7810736294808) rotate(0 52.734375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">location;</text></g>
+            <g transform="translate(625.5 272.7810736294808) rotate(0 35.15625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">String</text></g>
+            <g transform="translate(503.5 314.2810736294808) rotate(0 46.875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">screens;</text></g>
+            <g transform="translate(610.5 314.2810736294808) rotate(0 64.453125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">Map&lt;Screen&gt;</text></g>
+            <g transform="translate(503.5 355.7810736294808) rotate(0 35.15625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">shows;</text></g>
+            <g transform="translate(595.5 355.7810736294808) rotate(0 52.734375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">Map&lt;Show&gt;</text></g>
+            <g transform="translate(503.5 406.7810736294808) rotate(0 70.3125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">addScreen();</text>
+            </g>
+            <g transform="translate(503.5 444.7810736294808) rotate(0 58.59375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">addShow();</text></g>
+            <g transform="translate(503.5 479.7810736294808) rotate(0 117.1875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">getAvailableShows();</text></g>
+            <g transform="translate(503.5 515.7810736294807) rotate(0 117.1875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">getAvailableSeats();</text></g>
+            <g transform="translate(503.5 561.7810736294807) rotate(0 82.03125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">bookTickets();</text>
+            </g>
+            <g transform="translate(503.5 602.7810736294807) rotate(0 82.03125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">releasSeats();</text>
+            </g>
+            <g transform="translate(503.5 645.7810736294807) rotate(0 158.203125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">checkHasOverlappingSeats();</text></g>
+            <g transform="translate(503.5 687.7810736294807) rotate(0 70.3125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">getShowId();</text>
+            </g>
+            <g stroke-linecap="round">
+                <g transform="translate(1218.25 197.0813729435543) rotate(0 -107.64304214572388 -2.0007640113384184)">
+                    <path
+                        d="M1.1 -1.41 C-45.39 -0.37, -94.84 -0.52, -216.39 -2.6 M0.45 0.38 C-59.46 -0.49, -120.77 -1.69, -215.43 -4.38"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g transform="translate(1218.25 197.0813729435543) rotate(0 -107.64304214572388 -2.0007640113384184)">
+                    <path
+                        d="M-185.71 -15.5 C-191.78 -12.4, -201.19 -9.49, -216.16 -2.65 M-186.47 -13.45 C-193.88 -10.46, -202.99 -7.87, -215.07 -4.7"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g transform="translate(1218.25 197.0813729435543) rotate(0 -107.64304214572388 -2.0007640113384184)">
+                    <path
+                        d="M-186.26 5.01 C-192.16 3.68, -201.46 2.16, -216.16 -2.65 M-187.01 7.06 C-194.39 4.32, -203.34 1.18, -215.07 -4.7"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+            </g>
+            <mask></mask>
+            <g stroke-linecap="round">
+                <g transform="translate(209.5 589.4409091772227) rotate(0 127.61892831740082 -91.9409091772227)">
+                    <path
+                        d="M0.87 1.38 C1.63 -40.14, -1.45 -79.48, 2.93 -183.25 M-0.45 0.55 C-1.3 -65.94, -0.85 -132.47, 0.79 -184.89 M1.09 -185.22 C55.5 -185.59, 108.7 -183.34, 256.11 -181.11 M0.8 -183.81 C81.49 -182.43, 161.03 -182.67, 254.64 -179.86"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g transform="translate(209.5 589.4409091772227) rotate(0 127.61892831740082 -91.9409091772227)">
+                    <path
+                        d="M227.1 -168.86 C234.26 -171.91, 237.1 -172.79, 256.07 -178.7 M225.78 -169.69 C236.19 -173.71, 246.29 -177.63, 253.93 -180.33"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g transform="translate(209.5 589.4409091772227) rotate(0 127.61892831740082 -91.9409091772227)">
+                    <path
+                        d="M227.56 -189.38 C234.68 -187.91, 237.41 -184.27, 256.07 -178.7 M226.24 -190.2 C236.68 -186.87, 246.61 -183.45, 253.93 -180.33"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+            </g>
+            <mask></mask>
+            <g stroke-linecap="round">
+                <g
+                    transform="translate(72.36769414949015 905.2810736294807) rotate(0 -0.3182444861038789 -37.75218751048669)">
+                    <path
+                        d="M-0.76 0.69 C0.8 -22.56, 0.33 -50.12, -0.87 -74.83 M-0.5 -0.93 C-0.13 -15.98, 0.29 -34.32, -0.73 -76.2"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g
+                    transform="translate(72.36769414949015 905.2810736294807) rotate(0 -0.3182444861038789 -37.75218751048669)">
+                    <path
+                        d="M9.27 -47.5 C7.11 -55.42, 3.26 -67.55, -1.48 -74.52 M9.54 -49.13 C7.92 -53.56, 6.02 -61.33, -1.35 -75.89"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g
+                    transform="translate(72.36769414949015 905.2810736294807) rotate(0 -0.3182444861038789 -37.75218751048669)">
+                    <path
+                        d="M-11.25 -47.13 C-6.88 -55.01, -4.21 -67.26, -1.48 -74.52 M-10.98 -48.76 C-8.13 -53.37, -5.56 -61.22, -1.35 -75.89"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+            </g>
+            <mask></mask>
+            <g stroke-linecap="round" transform="translate(1046 991.5310736294807) rotate(0 250 328.75)">
+                <path
+                    d="M0.61 -0.49 C134.9 1.98, 270.94 2.52, 499.6 0.21 M0.04 0.27 C189.71 -0.68, 379.3 -0.65, 499.91 0.39 M499.63 0.66 C503.12 136.35, 502.31 271.54, 500.32 657.92 M500.04 0.19 C498.37 213.17, 497.95 426.3, 499.68 657.64 M500.38 656.87 C396.27 658.91, 293.72 659.25, 0.7 657.81 M500 657.55 C399.43 656.92, 298.42 657, 0.35 657.57 M-0.55 657.36 C0.31 460.5, 0.96 263.01, 0.64 0.03 M0.23 657.46 C-2.63 475.55, -2.67 294.37, 0.22 0.2"
+                    stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+            </g>
+            <g transform="translate(1071 1011.5310736294807) rotate(0 64.453125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#e03131" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">UserSession</text>
+            </g>
+            <g transform="translate(1067.25 1179.0310736294807) rotate(0 29.296875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">user;</text></g>
+            <g transform="translate(1142.25 1179.0310736294807) rotate(0 52.734375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">User&lt;obj&gt;</text></g>
+            <g transform="translate(1067.25 1059.0310736294807) rotate(0 46.875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">theatre;</text></g>
+            <g transform="translate(1176 1059.0310736294807) rotate(0 70.3125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">Theatre&lt;obj&gt;</text></g>
+            <g transform="translate(1067.25 1221.5310736294807) rotate(0 52.734375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">showTime;</text></g>
+            <g transform="translate(1202.25 1221.5310736294807) rotate(0 58.59375 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">DateString</text></g>
+            <g transform="translate(1067.25 1095.2810736294807) rotate(0 41.015625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">screen;</text></g>
+            <g transform="translate(1176 1095.2810736294807) rotate(0 35.15625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">String</text></g>
+            <g transform="translate(1067.25 1136.5310736294807) rotate(0 35.15625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">movie;</text></g>
+            <g transform="translate(1176 1136.5310736294807) rotate(0 35.15625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">String</text></g>
+            <g transform="translate(1067.25 1260.2810736294807) rotate(0 82.03125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">selectedSeats;</text>
+            </g>
+            <g transform="translate(1253.5 1260.2810736294807) rotate(0 76.171875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">Array&lt;String&gt;</text></g>
+            <g transform="translate(1067.25 1301.5310736294807) rotate(0 93.75 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">paymentAttempts;</text></g>
+            <g transform="translate(1301 1301.5310736294807) rotate(0 17.578125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">int</text></g>
+            <g transform="translate(1067.25 1345.2810736294807) rotate(0 123.046875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">MAX_PAYMENT_ATTEMPTS;</text></g>
+            <g transform="translate(1351 1345.2810736294807) rotate(0 17.578125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">int</text></g>
+            <g transform="translate(1067.25 1385.2810736294807) rotate(0 93.75 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">isSessionClosed;</text></g>
+            <g transform="translate(1273.5 1385.2810736294807) rotate(0 41.015625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Boolean</text></g>
+            <g transform="translate(1067.25 1424.6560736294807) rotate(0 117.1875 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">hasOverlappingSeats;</text></g>
+            <g transform="translate(1317.25 1424.6560736294807) rotate(0 41.015625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#2f9e44" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Boolean</text></g>
+            <g transform="translate(1068.5 1482.7810736294807) rotate(0 82.03125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">selectSeats();</text>
+            </g>
+            <g transform="translate(1067.25 1520.2810736294807) rotate(0 87.890625 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">releaseSeats();</text></g>
+            <g transform="translate(1068.5 1556.5310736294807) rotate(0 158.203125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr"
+                    dominant-baseline="text-before-edge">checkHasOverlappingSeats();</text></g>
+            <g transform="translate(1072.25 1592.7810736294807) rotate(0 82.03125 12)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#1e1e1e" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">makePayment();</text>
+            </g>
+            <g stroke-linecap="round">
+                <g transform="translate(1004.75 665.2810736294808) rotate(0 56.93337256285878 153.90662541953125)">
+                    <path
+                        d="M1.36 -0.7 C45.15 1.5, 90.23 0.67, 112.08 -1.94 M0.31 -0.14 C28.2 0.9, 56.26 0.45, 113.1 0.81 M113.04 -0.39 C113.98 93.22, 113.89 187.11, 110.55 309.76 M113.11 -0.01 C112.24 81.39, 110.96 162.09, 110.82 308.3"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g transform="translate(1004.75 665.2810736294808) rotate(0 56.93337256285878 153.90662541953125)">
+                    <path
+                        d="M102.01 279.38 C105.23 292.2, 109.97 302.35, 109.14 306.36 M100.96 279.94 C103.24 287.34, 105.58 293.9, 110.17 309.11"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+                <g transform="translate(1004.75 665.2810736294808) rotate(0 56.93337256285878 153.90662541953125)">
+                    <path
+                        d="M122.53 279.45 C117.76 292.17, 114.51 302.3, 109.14 306.36 M121.48 280.01 C118.66 287.27, 115.91 293.81, 110.17 309.11"
+                        stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+                </g>
+            </g>
+            <mask></mask>
+            <g transform="translate(744.2855949840673 10) rotate(0 284.765625 21.599999999999994)"><text x="0" y="0"
+                    font-family="Cascadia, Segoe UI Emoji" font-size="36px" fill="#e03131" text-anchor="start"
+                    style="white-space: pre;" direction="ltr" dominant-baseline="text-before-edge">Bookmyshow Low Level Design</text></g>
+            <g stroke-linecap="round">
+                <g
+                    transform="translate(749.2855949840673 58.333333333333314) rotate(0 290.06567165973587 -1.898966737069827)">
+                    <path
+                        d="M0.52 -0.06 C97.33 -0.41, 484.1 -1.47, 580.79 -2.21 M-0.66 -1.13 C96.06 -1.79, 483.44 -3.29, 580.26 -3.74"
+                        stroke="#e03131" stroke-width="1" fill="none"></path>
+                </g>
+            </g>
+            <mask></mask>
+        </svg>
+    </div>
+</body>
+
+</html>
